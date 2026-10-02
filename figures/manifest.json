@@ -1,0 +1,40 @@
+{
+  "run_id": "rerun-20260926T121833Z",
+  "data_manifest_sha256": "5b186802db9dd54dfe0512b3693ade56ad4b6f9dccb951dc0f8716c2822fda25",
+  "rendering_source_hashes": {
+    "src/recovery_reporting/__init__.py": "2bb87564252264ee0b6930807f6368007e9b8542ffde2cbc24ec2173101550da",
+    "src/recovery_reporting/data.py": "bb06d0669f9840eaf9a6a132bc9e0acf84b471ec5c30d44a4696efbce8337ec2",
+    "src/recovery_reporting/figures.py": "adfe0a8350e2fbc87d6063608e5d44924ea8f2451cc4f55b72342fa8c8e83a74",
+    "scripts/reproduce.py": "bd6955c828859fe309d47a9b03f4552e2e0e8d7d02fdd2b6d39a06f91737951c",
+    "scripts/analyse_recovery.py": "a2bae173801d7616a058d500a6712719539fc7594a21418681dc694fa7fcf9e1",
+    "src/recovery_estimators/report.py": "c5cf70940699f7e54919914f1eaa25737d71108cb46dd9e58c5aef010d75938f",
+    "pyproject.toml": "30a24396bd8b70f6b2e3dcd2345f43841ea269d50276a5e91acb7aaeff5a7a07"
+  },
+  "environment": {
+    "python": "3.12.2",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "torch": "2.14.0"
+  },
+  "artifacts": {
+    "docs/results.md": "7fa37316ea793d51d0de939ca116b9480cde7192b9e4593f68f72495fe4f5af7",
+    "docs/estimators.md": "64f6571540cf3bb587495a429b5bbc17537dd18011ebf436040b5ae70c32cf25",
+    "figures/data.json": "f06ca3243763889f9fe8a37c5cdadd54f70e2f3b8519da206acf6f31d1e87365",
+    "figures/main_recovery.pdf": "0727172da986f02492e2e60ee18fdfa266eb969b81d79aac8220528f945c7feb",
+    "figures/main_recovery.png": "dd9967f8c5c501083e34a1a90238b2afc43427b0cd31f77256193d354a1e6086",
+    "figures/main_recovery.svg": "f2187da38cd53676e7c63bed3917001497039e8ab3426cca007514de48bc5880",
+    "figures/supp_controlled.pdf": "4eb48d9fd9447b7f899c147b8a239f74c481c9955e86bc8e38fc9839b01f46dc",
+    "figures/supp_controlled.png": "a75bed2827b1942b43dd7bf3e95ce3e7fdfb9e95bb05457d2009be17e517719c",
+    "figures/supp_controlled.svg": "06b0e9f1d27d23a12346c90aea1850abcdf388c1dc642e624582d30fa28538f1",
+    "figures/supp_diagnostics.pdf": "47096cf3ee452efdd7ed288466bb6fd9b5a29a9a5e2dea2b517af2b0d6b5f587",
+    "figures/supp_diagnostics.png": "9c2d24cb67641561e2db826eb4e6b66cee7e2c742c6585137504fe9a612109af",
+    "figures/supp_diagnostics.svg": "9e84c2e62290d469dc785908fe56cd862cdacf3fa96fd34094c69a6b98850b3c",
+    "figures/supp_factorization.pdf": "8cc16f783dd1fc3b00e083f4230f4a52463dfbc9216ed1cd614198c93da11449",
+    "figures/supp_factorization.png": "0e81fdc913da38c7fd09c5dccd1e9017aa552bb8156e6dea70fec9483bd6e6cd",
+    "figures/supp_factorization.svg": "ff42dae4d8ad6f7020b1108eadfb12e17585cf7a698912af4e8dd74bc9519202",
+    "figures/supp_potential.pdf": "4379bb3e9f74f7bfb42ee8fab58b1f67d6d4ad6fc3d54ede228bb05b614437e0",
+    "figures/supp_potential.png": "1e60be6722efe7d16ce815d35008f388fc92f46129bec8c14ea878a23bf448c5",
+    "figures/supp_potential.svg": "abed6b2a062de97290b8071bf62b1ff2aa42a27be66877e775b423298141061b"
+  }
+}

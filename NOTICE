@@ -1,0 +1,31 @@
+Identifiability of Diffusion Models -- theory recovery experiments
+Copyright 2026 the paper authors
+
+Licensed under the Apache License, Version 2.0; see LICENSE.
+
+This repository contains a numerical core extracted from the research project
+identifiability-research-1 at commit
+b4cd012dc31a5305227ddd2c4f385e88fc651af3. Per-file provenance, content hashes
+and modification reasons are in docs/provenance.md, and each extracted file
+carries its own notice.
+
+src/recovery_core/generator.py is derived from TCL (Time-Contrastive Learning),
+Version 1.0, 1 May 2018, by Hiroshi Morioka, licensed under Apache-2.0:
+https://github.com/hmorioka/TCL
+Pinned revision: e813b79399c6d9c5550822c740872f9df0c91871
+Original path: subfunc/generate_artificial_data.py
+sha256: c2ca46cb57ef4bf53c0d7795ad4f511547b61c2db4940bec87370a919799cbc3
+Immediate source: src/idiff/data.py in identifiability-research-1.
+
+That file is MODIFIED with respect to the upstream source. The research
+generator replaces TCL's scale-modulated Laplace sources with a bounded
+exponential family and statistics (z,z^2), and replaces the conditioned
+uniform-matrix/leaky-ReLU mixing with orthogonal-matrix/leaky-tanh mixing after
+artanh. These are research modifications, not the original TCL algorithm.
+
+The other files in src/recovery_core/ have no TCL ancestor. They are additions
+of the research project, or new to this repository.
+
+The pinned TCL tree states its license in README but has no standalone LICENSE
+or NOTICE file. The LICENSE and NOTICE files here are supplied by the research
+project and are not verbatim upstream files.

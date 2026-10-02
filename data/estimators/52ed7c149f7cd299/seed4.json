@@ -1,0 +1,1247 @@
+{
+ "schema_version": 2,
+ "config": {
+  "name": "estimators",
+  "stage": "production",
+  "frozen": true,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "n": 2,
+  "separation": 1.0,
+  "case": "mixing",
+  "sizes": {
+   "fitting": 10000,
+   "calibration": 4000,
+   "test": 10000
+  },
+  "widths": [
+   64,
+   512
+  ],
+  "network": {
+   "hidden_layers": 4,
+   "embedding_dim": 64,
+   "frequency_scale": 16.0,
+   "dtype": "float32",
+   "device": "cpu"
+  },
+  "training": {
+   "learning_rate": 0.001,
+   "batch_size": 256,
+   "updates": 40000
+  },
+  "dsm": {
+   "t_min": 0.001,
+   "beta_min": 0.0001,
+   "beta_max": 0.02,
+   "evaluate_at": [
+    5000,
+    10000,
+    20000
+   ]
+  },
+  "convex": {
+   "n_features": [
+    128,
+    512,
+    2048
+   ],
+   "ridge": 1e-06,
+   "max_iterations": 20000
+  },
+  "potential": {
+   "n_features": 4096,
+   "ridge": 1e-09,
+   "basis_seed": 17,
+   "chunk_size": 512
+  },
+  "output": "results"
+ },
+ "config_id": "52ed7c149f7cd299",
+ "source_hashes": {
+  "src/recovery_core/__init__.py": "1cfa623ccec25bbfae20ca97ab124f6b795b0b2de0bc56cefb18c599a56a1f22",
+  "src/recovery_core/bounds.py": "b1c3846473843e948156da30d72dd73d87a1c867777398c180e301100a2398b3",
+  "src/recovery_core/directions.py": "2e698fc93cf789d753441a762c3a51fbf3a963eded0c9364b57f340c2a22e8c3",
+  "src/recovery_core/generator.py": "2fcbaf88ec842e5eff493af8970b56ac952fcf251ce035e6b96b4f3124c5cb8d",
+  "src/recovery_core/metrics.py": "2eb23643266d52d2fdc25883da990467d21e5f26f1727103d494af187bc8ab6d",
+  "src/recovery_core/perturbation.py": "48e29f0b83c5b0f2bc04e532d3cd61c8e70f6f5be34be8690a5dbe30e844c145",
+  "src/recovery_core/readout.py": "a92230a45cf25f15d8fc896827eee51f667271079b5e3b215dc00e29f111e349",
+  "src/recovery_core/recovery.py": "1fc97a5da0a168cfadd9cd27d254bb198fe7f534104385728eab41c369f9e14d",
+  "src/recovery_core/runs.py": "a6f2ca6aee2059397c6da3ab0b569d63dc27fabed95aaf31ed89394d62f9864c",
+  "src/recovery_core/types.py": "4ea2d7665ef0307f77b24d8fc007d6c6994c93944daaba78bbf6885e98836f47",
+  "src/recovery_estimators/__init__.py": "022f41818499a762f82dfb80e170cd1c9252a78c60fc34e4ecc23b26c7ddca84",
+  "src/recovery_estimators/convex.py": "193a64ffb267fcb23a4b14d5aeee5511a85e4f7e1422986637d420371c814c91",
+  "src/recovery_estimators/dsm.py": "174ff68a4473d776d6bdfb553e2c7e136ce7592c25a0dfddf5dafd6454f29e9f",
+  "src/recovery_estimators/evaluate.py": "7a9f4e9d4aacfa7cd179e0648c6bc7d321c5951e6927b0c84cbc8aed0360f651",
+  "src/recovery_estimators/experiment.py": "7845b52a04135c33e5d239c8b8f31e5c405641d063464519cb4b13520004b083",
+  "src/recovery_estimators/logodds.py": "ce893c24d6deaef83868961a4c81870c6b0dda852a2cd303299bcb8bf980ad31",
+  "src/recovery_estimators/networks.py": "6085a80f0d086a6a46cb651c2bd7f118ce0139cef60208f4b35413033dcbbbf1",
+  "src/recovery_estimators/records.py": "d6b9b709571dbec0a5b26f303f2787a31a56fc277c13f5e43efba55dcaadb194",
+  "src/recovery_estimators/report.py": "8556cddfb8978fcbc2bc0b2819c87dea728fad19a2bb737b89f14ad7e2f1805e",
+  "src/recovery_estimators/schedule.py": "6492ee240d84da8165c59c6e74be59060d1297ce71ae41092ec1e6a474174565",
+  "scripts/run_estimators.py": "dbdbd4c901ca290a1735885f3e4776659a630199e492c97a23f7facfe0c70e88",
+  "scripts/analyse_estimators.py": "2ed30897a40ccab0c588cc7e24bfb583d2d8bd4e52ae0a52dc7ede98424e91b6"
+ },
+ "environment": {
+  "python": "3.12.2",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "dtype": "float64",
+  "torch": "2.14.0",
+  "training_dtype": "float32",
+  "device": "cpu",
+  "torch_threads": 8,
+  "torch_interop_threads": 12
+ },
+ "mode": "full",
+ "seed": 4,
+ "case": "mixing",
+ "rows": [
+  {
+   "estimator": "dsm",
+   "width": 64,
+   "update": 5000,
+   "evaluated_update": 5000,
+   "evaluated_state_sha256": "2f5d5ac02259ec477cd96a276dd69fff4ac9d242e541f96e1d44b3930c97fa89",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.506876335257898,
+   "common_score_mse": 890.1994399383618,
+   "centered_score_mse": 2.8396535745929405,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.506876335257898,
+   "solver_gradient_residual": 0.0006767959581022239,
+   "raw_readout_mse": 0.6290847571526489,
+   "raw_readout_l2": 0.7931486349686602,
+   "oracle_aligned_mse": 0.7979212938415557,
+   "affine_mse": 0.09052317809688662,
+   "affine_nmse": 0.12162018189871712,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0005113405737990674,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.1800474673318838,
+    0.09852056285463165,
+    0.014697310668747215,
+    -0.0672979736207227
+   ],
+   "centering_standard_error": [
+    0.0027085290247905805,
+    0.0017029628293772545,
+    0.0030921384393957307,
+    0.0033610581565531976
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.00012476560831173588,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "70454af9b11af3aed174c10f1d9f34f71247b2cf3593e742c2fc3c2baf6899b8",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 34.33159295801306
+  },
+  {
+   "estimator": "dsm",
+   "width": 64,
+   "update": 10000,
+   "evaluated_update": 10000,
+   "evaluated_state_sha256": "32b867997ec0b71093d70ccdd29719ec61292bb7ab58b43da27e6661dbe87548",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.328008301740576,
+   "common_score_mse": 896.1578481882752,
+   "centered_score_mse": 2.7837607984886676,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.328008301740576,
+   "solver_gradient_residual": 0.0002154699894851226,
+   "raw_readout_mse": 0.5909913982359332,
+   "raw_readout_l2": 0.7687596491985861,
+   "oracle_aligned_mse": 0.7028622698167224,
+   "affine_mse": 0.0987432276567167,
+   "affine_nmse": 0.13266402662114835,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0005712001796135586,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17999375950177585,
+    0.09831378854732642,
+    0.014925443438053828,
+    -0.06760936679692607
+   ],
+   "centering_standard_error": [
+    0.002819385642253132,
+    0.0014621843055708705,
+    0.003017817220322162,
+    0.0031654004079323867
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 3.972134287919932e-05,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "70454af9b11af3aed174c10f1d9f34f71247b2cf3593e742c2fc3c2baf6899b8",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 34.33159295801306
+  },
+  {
+   "estimator": "dsm",
+   "width": 64,
+   "update": 20000,
+   "evaluated_update": 20000,
+   "evaluated_state_sha256": "cdc0f8bbbc625397e1b5ba5054b54b09a4878d09fb888b21930195a9906d2eed",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.461914471685193,
+   "common_score_mse": 906.1200424933975,
+   "centered_score_mse": 3.7223338982713985,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.461914471685193,
+   "solver_gradient_residual": 0.007317444107913334,
+   "raw_readout_mse": 1.0475208221445653,
+   "raw_readout_l2": 1.0234846467556635,
+   "oracle_aligned_mse": 3.3899001747505304,
+   "affine_mse": 0.14373476473894897,
+   "affine_nmse": 0.19311129591595186,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0006871957332389498,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17936624826326875,
+    0.09687825464948896,
+    0.0130161561775122,
+    -0.06782095844588075
+   ],
+   "centering_standard_error": [
+    0.0023525358976481166,
+    0.00499399949731846,
+    0.004565371557462936,
+    0.0011519158613828187
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.0013489521538676793,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "70454af9b11af3aed174c10f1d9f34f71247b2cf3593e742c2fc3c2baf6899b8",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 34.33159295801306
+  },
+  {
+   "estimator": "dsm",
+   "width": 64,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "70454af9b11af3aed174c10f1d9f34f71247b2cf3593e742c2fc3c2baf6899b8",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.397537837308122,
+   "common_score_mse": 944.8329595616548,
+   "centered_score_mse": 2.7814312237278456,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.397537837308122,
+   "solver_gradient_residual": 0.010494782059029487,
+   "raw_readout_mse": 0.5979632349734134,
+   "raw_readout_l2": 0.773280825427227,
+   "oracle_aligned_mse": 0.7284686187576118,
+   "affine_mse": 0.3124497255272922,
+   "affine_nmse": 0.4197841177445411,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0016536840940661146,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17990633341168644,
+    0.09820330825419059,
+    0.014398887899424537,
+    -0.06755260855973247
+   ],
+   "centering_standard_error": [
+    0.0028720921989497518,
+    0.001617358460786926,
+    0.0030008361714335286,
+    0.0031159438980972423
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.0019346862994949132,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "70454af9b11af3aed174c10f1d9f34f71247b2cf3593e742c2fc3c2baf6899b8",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 34.33159295801306
+  },
+  {
+   "estimator": "logodds",
+   "width": 64,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "0da30c5c0e45479a70eb35b41fa6099670a02583092d3930a4df5437dcd5ae55",
+   "route_evaluated": "through_the_potential",
+   "field_error": 1.8227375425986274,
+   "common_score_mse": 886.7502268699048,
+   "centered_score_mse": 1.0750532034604645,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 1.8227375425986274,
+   "solver_gradient_residual": 9.644468162359082e-06,
+   "raw_readout_mse": 0.026828967401124795,
+   "raw_readout_l2": 0.16379550482575764,
+   "oracle_aligned_mse": 0.0643464455614929,
+   "affine_mse": 0.04074307336561614,
+   "affine_nmse": 0.05473935071673578,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.00019514886922936977,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.1761822087203728,
+    0.09787315156336478,
+    0.01686023189737712,
+    -0.06787567994027088
+   ],
+   "centering_standard_error": [
+    0.0004852787910863479,
+    0.0005833705331153822,
+    0.0006380859525080019,
+    0.0006044112155891083
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 1.777933101867244e-06,
+   "objective": "multiclass cross-entropy on the condition label",
+   "updates": 40000,
+   "final_state_sha256": "0da30c5c0e45479a70eb35b41fa6099670a02583092d3930a4df5437dcd5ae55",
+   "loss_note": "a proper scoring rule for p(u|x); its minimiser gives the log-odds, hence Lambda, with no irreducible variance term",
+   "train_seconds": 32.534334625001065
+  },
+  {
+   "estimator": "logodds",
+   "width": 64,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "0da30c5c0e45479a70eb35b41fa6099670a02583092d3930a4df5437dcd5ae55",
+   "route_evaluated": "direct",
+   "route_kind": "direct",
+   "route": "reference",
+   "raw_readout_mse": 0.026828843309777896,
+   "raw_readout_l2": 0.163795126025709,
+   "oracle_aligned_mse": 0.0643451974951115,
+   "affine_mse": 0.04074304038323815,
+   "affine_nmse": 0.05473930640407581,
+   "V_T": 0.7443104975148988,
+   "evaluation_split": "test",
+   "calibration_split": "calibration",
+   "solver_used": false,
+   "centering_offset": [
+    0.2106686974499601,
+    0.1183685686535751,
+    0.03075953296679674,
+    -0.06976119649087467
+   ],
+   "centering_standard_error": [
+    0.00048527609889350984,
+    0.0005833574342617647,
+    0.0006380945593171216,
+    0.0006044169969873674
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration"
+  },
+  {
+   "estimator": "dsm",
+   "width": 512,
+   "update": 5000,
+   "evaluated_update": 5000,
+   "evaluated_state_sha256": "e0dccd24949ae0aee7fb75c40340208e3c3ee6451b3eea95df6f09b240453cc7",
+   "route_evaluated": "through_the_potential",
+   "field_error": 183.21430417786016,
+   "common_score_mse": 711994.1934382103,
+   "centered_score_mse": 52.50556402905882,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 183.21430417786016,
+   "solver_gradient_residual": 0.3918190124681414,
+   "raw_readout_mse": 53.13635517062889,
+   "raw_readout_l2": 7.2894687852153455,
+   "oracle_aligned_mse": 44.999193941573495,
+   "affine_mse": 0.18820632180092833,
+   "affine_nmse": 0.25285995888719953,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0011649569437343125,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.1372735083109362,
+    0.08558789739972641,
+    -0.013406091560734206,
+    -0.09620179573041884
+   ],
+   "centering_standard_error": [
+    0.03572381474614524,
+    0.013509536949314851,
+    0.023072467749040596,
+    0.026119912374186455
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.0722308353846693,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "731c5b8bcbaf67c1dc99038101eae5b0c6039d89320769d871c1a3d4068417af",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 194.25836845801678
+  },
+  {
+   "estimator": "dsm",
+   "width": 512,
+   "update": 10000,
+   "evaluated_update": 10000,
+   "evaluated_state_sha256": "155be632c2b7399170d7f9294cddde4b9944998d6fc53a791f13842cc03fb482",
+   "route_evaluated": "through_the_potential",
+   "field_error": 8.10464737042128,
+   "common_score_mse": 1068.9943973105978,
+   "centered_score_mse": 4.295969055091767,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 8.10464737042128,
+   "solver_gradient_residual": 0.005281378506205788,
+   "raw_readout_mse": 1.4470585007329917,
+   "raw_readout_l2": 1.2029374467248874,
+   "oracle_aligned_mse": 3.1933445280497694,
+   "affine_mse": 0.17260435894909545,
+   "affine_nmse": 0.23189832674050181,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0008149345549611133,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.18289174778658907,
+    0.09678891875420635,
+    0.02160230043105454,
+    -0.06581013549000447
+   ],
+   "centering_standard_error": [
+    0.004757283992444343,
+    0.002155688754839231,
+    0.005621357353355013,
+    0.003697456569199013
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.0009736086543704889,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "731c5b8bcbaf67c1dc99038101eae5b0c6039d89320769d871c1a3d4068417af",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 194.25836845801678
+  },
+  {
+   "estimator": "dsm",
+   "width": 512,
+   "update": 20000,
+   "evaluated_update": 20000,
+   "evaluated_state_sha256": "9aea5b7b2f1b35af6b678625c68fbfd947ddef0d10ff72578d0fd10c6cd86a7a",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.424539351488578,
+   "common_score_mse": 890.8673010811049,
+   "centered_score_mse": 2.825606504711786,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.424539351488578,
+   "solver_gradient_residual": 5.748197641726287e-10,
+   "raw_readout_mse": 0.6103212974402772,
+   "raw_readout_l2": 0.7812306301216544,
+   "oracle_aligned_mse": 0.7443501446296921,
+   "affine_mse": 0.7295632981034853,
+   "affine_nmse": 0.9801867641788591,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0030475492944951926,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 4,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.18036933288993987,
+    0.09848578258874592,
+    0.014667714766006725,
+    -0.06740142263241082
+   ],
+   "centering_standard_error": [
+    0.0030506583588961037,
+    0.0015070782612559524,
+    0.00297023626916258,
+    0.003129029888199639
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 1.059665571108128e-10,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "731c5b8bcbaf67c1dc99038101eae5b0c6039d89320769d871c1a3d4068417af",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 194.25836845801678
+  },
+  {
+   "estimator": "dsm",
+   "width": 512,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "731c5b8bcbaf67c1dc99038101eae5b0c6039d89320769d871c1a3d4068417af",
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.424539499020696,
+   "common_score_mse": 890.4212621970987,
+   "centered_score_mse": 2.825606559417267,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.424539499020696,
+   "solver_gradient_residual": 2.5192053815551142e-12,
+   "raw_readout_mse": 0.6103212781731484,
+   "raw_readout_l2": 0.7812306177903862,
+   "oracle_aligned_mse": 0.7443501315834068,
+   "affine_mse": 0.5488672761983378,
+   "affine_nmse": 0.7374170833689621,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0020085846885798285,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.18036933306021355,
+    0.09848578415640306,
+    0.014667715407339946,
+    -0.06740142259612887
+   ],
+   "centering_standard_error": [
+    0.0030506583579753993,
+    0.0015070781268351522,
+    0.002970236186583492,
+    0.0031290298767955495
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 4.644090853811642e-13,
+   "objective": "denoising score matching",
+   "updates": 40000,
+   "final_state_sha256": "731c5b8bcbaf67c1dc99038101eae5b0c6039d89320769d871c1a3d4068417af",
+   "evaluated_at": [
+    5000,
+    10000,
+    20000
+   ],
+   "raw_loss_caveat": "carries an irreducible target-variance term; not a Fisher error and not comparable across times",
+   "train_seconds": 194.25836845801678
+  },
+  {
+   "estimator": "logodds",
+   "width": 512,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "54ea67b77b74b7ce1989bebacbc66858822ab197b8811fbeffa5a362bb5701d4",
+   "route_evaluated": "through_the_potential",
+   "field_error": 6.467807981113742,
+   "common_score_mse": 889.6952298930919,
+   "centered_score_mse": 4.164784860677851,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 6.467807981113742,
+   "solver_gradient_residual": 0.2461981309458008,
+   "raw_readout_mse": 0.0501844166364612,
+   "raw_readout_l2": 0.2240187863471749,
+   "oracle_aligned_mse": 0.1435775122968184,
+   "affine_mse": 0.08172571225035664,
+   "affine_nmse": 0.10980056377442232,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0004425635346341294,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17599653025905482,
+    0.09771411958991894,
+    0.017146385462924466,
+    -0.06815067399882829
+   ],
+   "centering_standard_error": [
+    0.000593761070977321,
+    0.0007286493642368595,
+    0.001037050545304749,
+    0.0007396718331866488
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 0.04538599736735678,
+   "objective": "multiclass cross-entropy on the condition label",
+   "updates": 40000,
+   "final_state_sha256": "54ea67b77b74b7ce1989bebacbc66858822ab197b8811fbeffa5a362bb5701d4",
+   "loss_note": "a proper scoring rule for p(u|x); its minimiser gives the log-odds, hence Lambda, with no irreducible variance term",
+   "train_seconds": 192.78330624999944
+  },
+  {
+   "estimator": "logodds",
+   "width": 512,
+   "update": 40000,
+   "evaluated_update": 40000,
+   "evaluated_state_sha256": "54ea67b77b74b7ce1989bebacbc66858822ab197b8811fbeffa5a362bb5701d4",
+   "route_evaluated": "direct",
+   "route_kind": "direct",
+   "route": "reference",
+   "raw_readout_mse": 0.05006178609641401,
+   "raw_readout_l2": 0.2237449130067855,
+   "oracle_aligned_mse": 0.14331074698790824,
+   "affine_mse": 0.08157377215734857,
+   "affine_nmse": 0.10959642841221075,
+   "V_T": 0.7443104975148988,
+   "evaluation_split": "test",
+   "calibration_split": "calibration",
+   "solver_used": false,
+   "centering_offset": [
+    0.19545917898456092,
+    0.12687140613268996,
+    0.019616914376203363,
+    -0.07100072912251043
+   ],
+   "centering_standard_error": [
+    0.0005937352634274515,
+    0.0007279845162516157,
+    0.0010337370454816118,
+    0.0007385330791409165
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration"
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 128,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 133,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 614,
+   "final_objective": 1.5796687534426808,
+   "gradient_norm": 2.647230748279983e-05,
+   "fit_seconds": 3.3525612499797717,
+   "route_evaluated": "through_the_potential",
+   "field_error": 1.9943211891526356,
+   "common_score_mse": 884.181390972205,
+   "centered_score_mse": 1.1726848916261579,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 1.9943211891526356,
+   "solver_gradient_residual": 2.196374536944112e-09,
+   "raw_readout_mse": 0.02432300676053667,
+   "raw_readout_l2": 0.15595834944156298,
+   "oracle_aligned_mse": 0.07397504010238315,
+   "affine_mse": 0.049471560077285225,
+   "affine_nmse": 0.06646629362673333,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0001969178812152714,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17575350547949506,
+    0.09809188132024892,
+    0.01759138716240364,
+    -0.0672040033885491
+   ],
+   "centering_standard_error": [
+    0.0005504498945737704,
+    0.0005726913534887558,
+    0.0005488619049993635,
+    0.0005338581892770875
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 4.0489604274623824e-10
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 128,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 133,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 614,
+   "final_objective": 1.5796687534426808,
+   "gradient_norm": 2.647230748279983e-05,
+   "fit_seconds": 3.3525612499797717,
+   "route_evaluated": "direct",
+   "route_kind": "direct",
+   "route": "reference",
+   "raw_readout_mse": 0.024323012115978194,
+   "raw_readout_l2": 0.1559583666110228,
+   "oracle_aligned_mse": 0.07397505099663279,
+   "affine_mse": 0.04947156532490662,
+   "affine_nmse": 0.06646630067704554,
+   "V_T": 0.7443104975148988,
+   "evaluation_split": "test",
+   "calibration_split": "calibration",
+   "solver_used": false,
+   "centering_offset": [
+    0.16723147751628992,
+    0.11744156379000767,
+    0.0323942268509951,
+    -0.05137987879061002
+   ],
+   "centering_standard_error": [
+    0.0005504499008175467,
+    0.0005726915274844493,
+    0.0005488619563073474,
+    0.0005338582013473533
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration"
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 512,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 517,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 685,
+   "final_objective": 1.5787903346905132,
+   "gradient_norm": 3.3482026135358094e-05,
+   "fit_seconds": 5.600532749958802,
+   "route_evaluated": "through_the_potential",
+   "field_error": 5.106991744811863,
+   "common_score_mse": 886.8135954906802,
+   "centered_score_mse": 2.798208594190962,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 5.106991744811863,
+   "solver_gradient_residual": 3.674241471051083e-08,
+   "raw_readout_mse": 0.04167390447910018,
+   "raw_readout_l2": 0.20414187340940168,
+   "oracle_aligned_mse": 0.12111476845261585,
+   "affine_mse": 0.0755618948021255,
+   "affine_nmse": 0.10151931895950854,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.0002899941661869648,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17633486490919514,
+    0.09844593258162299,
+    0.017432391613167633,
+    -0.06757199039071876
+   ],
+   "centering_standard_error": [
+    0.0007068617045327656,
+    0.0007215763378383256,
+    0.0007249589034073399,
+    0.0007248006363275983
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 6.773370418838341e-09
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 512,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 517,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 685,
+   "final_objective": 1.5787903346905132,
+   "gradient_norm": 3.3482026135358094e-05,
+   "fit_seconds": 5.600532749958802,
+   "route_evaluated": "direct",
+   "route_kind": "direct",
+   "route": "reference",
+   "raw_readout_mse": 0.041673944370489005,
+   "raw_readout_l2": 0.20414197111444038,
+   "oracle_aligned_mse": 0.12111481018041748,
+   "affine_mse": 0.07556193366820638,
+   "affine_nmse": 0.10151937117707233,
+   "V_T": 0.7443104975148988,
+   "evaluation_split": "test",
+   "calibration_split": "calibration",
+   "solver_used": false,
+   "centering_offset": [
+    0.1677665397432842,
+    0.1179388444126432,
+    0.03235393094218431,
+    -0.05167675636883014
+   ],
+   "centering_standard_error": [
+    0.000706861894779724,
+    0.0007215764611706828,
+    0.0007249592972001444,
+    0.0007248018054159805
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration"
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 2048,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 2053,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 819,
+   "final_objective": 1.578196157791842,
+   "gradient_norm": 2.8737827433379232e-05,
+   "fit_seconds": 16.957975458994042,
+   "route_evaluated": "through_the_potential",
+   "field_error": 8.473829792555932,
+   "common_score_mse": 886.6061682896042,
+   "centered_score_mse": 4.429847242885539,
+   "route_kind": "through_the_potential",
+   "route": "reference",
+   "field_error_mse": 8.473829792555932,
+   "solver_gradient_residual": 9.673086779385972e-09,
+   "raw_readout_mse": 0.053325665571040945,
+   "raw_readout_l2": 0.23092350588677832,
+   "oracle_aligned_mse": 0.16148629275175097,
+   "affine_mse": 0.09095288249462012,
+   "affine_nmse": 0.12219750063756092,
+   "V_T": 0.7443104975148988,
+   "affine_mse_stratified_se": 0.00036488804093001633,
+   "alignment_singular_values": [
+    1.3452319849971717,
+    0.6500012387121705,
+    0.43447860663034316,
+    0.2945215925688136
+   ],
+   "fitted_affine_rank": 5,
+   "calibration_split": "calibration",
+   "evaluation_split": "test",
+   "evaluation_samples": 50000,
+   "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+   "centering_offset": [
+    0.17612750628765267,
+    0.09801434086066643,
+    0.01658815098537332,
+    -0.0680763009146067
+   ],
+   "centering_standard_error": [
+    0.0008293740249118023,
+    0.0008229723801637565,
+    0.0008081362288907348,
+    0.0008049421321243232
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration",
+   "solver_residual_fraction": 1.78320887090761e-09
+  },
+  {
+   "estimator": "convex_logodds",
+   "n_features": 2048,
+   "objective": "multinomial cross-entropy, convex, L-BFGS-B",
+   "basis_width": 2053,
+   "ridge": 1e-06,
+   "converged": true,
+   "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+   "iterations": 819,
+   "final_objective": 1.578196157791842,
+   "gradient_norm": 2.8737827433379232e-05,
+   "fit_seconds": 16.957975458994042,
+   "route_evaluated": "direct",
+   "route_kind": "direct",
+   "route": "reference",
+   "raw_readout_mse": 0.053325705458764416,
+   "raw_readout_l2": 0.23092359225242537,
+   "oracle_aligned_mse": 0.16148641331811842,
+   "affine_mse": 0.09095294652694189,
+   "affine_nmse": 0.12219758666660656,
+   "V_T": 0.7443104975148988,
+   "evaluation_split": "test",
+   "calibration_split": "calibration",
+   "solver_used": false,
+   "centering_offset": [
+    0.16749684493806857,
+    0.11744915827598672,
+    0.031452723052655944,
+    -0.05190291025089882
+   ],
+   "centering_standard_error": [
+    0.0008293741187562161,
+    0.0008229727740636286,
+    0.0008081365231851391,
+    0.0008049425115961078
+   ],
+   "centering_samples": 20000,
+   "centering_source": "calibration"
+  }
+ ],
+ "conditions": 5,
+ "dsm_loss_history": {
+  "64": [
+   {
+    "update": 0,
+    "raw_dsm": 146398.6875
+   },
+   {
+    "update": 2000,
+    "raw_dsm": 17116.01953125
+   },
+   {
+    "update": 4000,
+    "raw_dsm": 21075.1328125
+   },
+   {
+    "update": 6000,
+    "raw_dsm": 33810.8359375
+   },
+   {
+    "update": 8000,
+    "raw_dsm": 47147.09375
+   },
+   {
+    "update": 10000,
+    "raw_dsm": 38522.421875
+   },
+   {
+    "update": 12000,
+    "raw_dsm": 16773.466796875
+   },
+   {
+    "update": 14000,
+    "raw_dsm": 23281.69921875
+   },
+   {
+    "update": 16000,
+    "raw_dsm": 46180.640625
+   },
+   {
+    "update": 18000,
+    "raw_dsm": 34779.7265625
+   },
+   {
+    "update": 20000,
+    "raw_dsm": 9131.814453125
+   },
+   {
+    "update": 22000,
+    "raw_dsm": 28783.380859375
+   },
+   {
+    "update": 24000,
+    "raw_dsm": 28532.640625
+   },
+   {
+    "update": 26000,
+    "raw_dsm": 41448.5546875
+   },
+   {
+    "update": 28000,
+    "raw_dsm": 27371.2109375
+   },
+   {
+    "update": 30000,
+    "raw_dsm": 34601.37890625
+   },
+   {
+    "update": 32000,
+    "raw_dsm": 73836.3203125
+   },
+   {
+    "update": 34000,
+    "raw_dsm": 78616.25
+   },
+   {
+    "update": 36000,
+    "raw_dsm": 34596.6640625
+   },
+   {
+    "update": 38000,
+    "raw_dsm": 23113.412109375
+   },
+   {
+    "update": 39999,
+    "raw_dsm": 189445.8125
+   }
+  ],
+  "512": [
+   {
+    "update": 0,
+    "raw_dsm": 146399.484375
+   },
+   {
+    "update": 2000,
+    "raw_dsm": 17120.677734375
+   },
+   {
+    "update": 4000,
+    "raw_dsm": 21059.224609375
+   },
+   {
+    "update": 6000,
+    "raw_dsm": 34078.3046875
+   },
+   {
+    "update": 8000,
+    "raw_dsm": 47130.1484375
+   },
+   {
+    "update": 10000,
+    "raw_dsm": 38472.6640625
+   },
+   {
+    "update": 12000,
+    "raw_dsm": 16853.740234375
+   },
+   {
+    "update": 14000,
+    "raw_dsm": 23286.736328125
+   },
+   {
+    "update": 16000,
+    "raw_dsm": 46072.2890625
+   },
+   {
+    "update": 18000,
+    "raw_dsm": 34710.1484375
+   },
+   {
+    "update": 20000,
+    "raw_dsm": 9103.7158203125
+   },
+   {
+    "update": 22000,
+    "raw_dsm": 28828.583984375
+   },
+   {
+    "update": 24000,
+    "raw_dsm": 29094.958984375
+   },
+   {
+    "update": 26000,
+    "raw_dsm": 41465.90625
+   },
+   {
+    "update": 28000,
+    "raw_dsm": 27383.271484375
+   },
+   {
+    "update": 30000,
+    "raw_dsm": 34574.3203125
+   },
+   {
+    "update": 32000,
+    "raw_dsm": 73688.484375
+   },
+   {
+    "update": 34000,
+    "raw_dsm": 78654.5625
+   },
+   {
+    "update": 36000,
+    "raw_dsm": 34630.171875
+   },
+   {
+    "update": 38000,
+    "raw_dsm": 23102.509765625
+   },
+   {
+    "update": 39999,
+    "raw_dsm": 189661.53125
+   }
+  ]
+ },
+ "analytic_reference": {
+  "field_error": 3.326941199712286e-30,
+  "common_score_mse": 0.0,
+  "centered_score_mse": 0.0,
+  "route_kind": "through_the_potential",
+  "route": "reference",
+  "field_error_mse": 3.326941199712286e-30,
+  "solver_gradient_residual": 0.011907296990195139,
+  "raw_readout_mse": 5.505025725073468e-06,
+  "raw_readout_l2": 0.002346279123436397,
+  "oracle_aligned_mse": 1.7325369513936435e-05,
+  "affine_mse": 1.7291482892990867e-05,
+  "affine_nmse": 2.3231545102109414e-05,
+  "V_T": 0.7443104975148988,
+  "affine_mse_stratified_se": 5.28594323860226e-07,
+  "alignment_singular_values": [
+   1.3452319849971717,
+   0.6500012387121705,
+   0.43447860663034316,
+   0.2945215925688136
+  ],
+  "fitted_affine_rank": 5,
+  "calibration_split": "calibration",
+  "evaluation_split": "test",
+  "evaluation_samples": 50000,
+  "oracle_use": "evaluation only: Upsilon, DUpsilon and G",
+  "centering_offset": [
+   0.17722473551809825,
+   0.09914789876798735,
+   0.01776049332333838,
+   -0.06671091049547444
+  ],
+  "centering_standard_error": [
+   9.37192187821671e-06,
+   6.030200455721341e-06,
+   8.983448999325865e-06,
+   8.084204181270012e-06
+  ],
+  "centering_samples": 20000,
+  "centering_source": "calibration",
+  "solver_residual_fraction": 0.002195079823608829
+ },
+ "status": "completed",
+ "wall_clock_seconds": 1032.6182410830515
+}

@@ -1,0 +1,58 @@
+# Which estimator reaches the construction. Frozen 2026-09-25.
+#
+# `thm:recovery`(2) asks of the estimator only that `J_Delta` be finite, so the objective
+# decides whether the bound says anything. The generated model, the splits and the potential
+# solver are taken from configs/recovery-n2.yaml, `mixing` entry, so every number here lands
+# on the axes the controlled-error experiment already measured.
+#
+# `mixing` only: `artanh` has a diagonal Jacobian and is the degenerate control.
+#
+# Two widths, because a documented confound would otherwise be uncontrolled: Lyu and Fu
+# (ICML 2022), in nearly this setting, report performance declining above width 128 at these
+# sample sizes. Both objectives get the same network, budget and data; only the objective
+# differs. Nothing is tuned, and a number that comes out badly is reported as it is.
+#
+# DECLARED IN ADVANCE: no follow-up run is licensed by any result here. Learning rate,
+# optimiser, schedule, architecture and time sampling are not to be swept, whatever the
+# numbers say. That question belongs to separate work.
+name: estimators
+stage: production
+frozen: true
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+n: 2
+separation: 1.0
+case: mixing
+sizes:
+  fitting: 10000
+  calibration: 4000
+  test: 10000
+widths: [64, 512]
+network:
+  hidden_layers: 4
+  embedding_dim: 64
+  frequency_scale: 16.0
+  dtype: float32
+  device: cpu
+training:
+  learning_rate: 0.001
+  batch_size: 256
+  updates: 40000
+dsm:
+  t_min: 0.001
+  beta_min: 0.0001
+  beta_max: 0.02
+  # The readout is measured at each of these, from one training run, so whether more
+  # training would help is answerable from the record rather than by assertion.
+  evaluate_at: [5000, 10000, 20000]
+# Convex multinomial logistic regression on a fixed basis: not a ceiling, a reference with
+# the optimisation pathologies removed. Iterations are generous; convergence is recorded.
+convex:
+  n_features: [128, 512, 2048]
+  ridge: 1.0e-6
+  max_iterations: 20000
+potential:
+  n_features: 4096
+  ridge: 1.0e-9
+  basis_seed: 17
+  chunk_size: 512
+output: results

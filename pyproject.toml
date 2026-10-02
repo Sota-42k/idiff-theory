@@ -1,0 +1,46 @@
+[project]
+name = "recovery-core"
+version = "0.1.0"
+description = "Phase 1 recovery-map experiments for Identifiability of Diffusion Models"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26,<3",
+    "scipy>=1.13,<2",
+    "pyyaml>=6,<7",
+]
+
+[project.optional-dependencies]
+# Controlled-score construction needs NumPy and SciPy. Learned estimators and their saved
+# record validation need torch; install this extra for publication reproduction too.
+estimators = [
+    "torch>=2.5,<3",
+]
+dev = [
+    "pytest>=8,<10",
+    "mypy>=1.10,<2",
+    "types-PyYAML",
+]
+plot = [
+    "matplotlib>=3.8,<4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# src layout: import the package from the tree under test, not from a stale editable install.
+pythonpath = ["src"]
+
+[tool.mypy]
+files = ["src/recovery_core", "src/recovery_estimators", "src/recovery_reporting"]
+python_version = "3.12"
+check_untyped_defs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/recovery_core", "src/recovery_estimators", "src/recovery_reporting"]

@@ -1,0 +1,96 @@
+# the recovery-map experiments production configuration, n3. Frozen 2026-09-24.
+#
+# The potential-solver setting is chosen PER CASE. A single shared setting is known to
+# handicap one of them -- 2048/1e-8 costs `mixing` about 1.37x, 4096 costs `artanh` about as
+# much the other way -- and a control that is handicapped against the benchmark is not
+# serving as a control.
+#
+# Selection: scripts/select_potential.py on seeds 100-109, disjoint from the production seeds,
+# evaluated on the validation split, criterion declared in that script before it ran (minimum
+# geometric mean of oracle-aligned MSE per case; ties within 5% to the smaller n_features).
+# This is an oracle validation selection and is labelled as one in every record.
+#
+# Grid: the full 3 x 3 cross of n_features {1024, 2048, 4096} with ridge {1e-9, 1e-8, 1e-7},
+# geometric spacing, centred on `artanh`'s measured interior optimum in both axes -- it is the
+# only case with a well-posed interior optimum, `mixing` being monotone in the ridge. The
+# centring used the selection seeds, which is a mild double use of that data: the grid is
+# declared and reasonable, not independently derived. A probe at 8192/1e-8 lay outside the
+# grid and is excluded from the candidate set; its value is reported as context.
+#
+# DECLARED LIMITATION: `mixing` is selected at the lower edge of the ridge axis. Lowering the
+# ridge further keeps improving the metric while the Gram condition number degrades by the
+# same factor, so there is no interior optimum to find on this axis. That is an optimisation
+# question about the numerical solver, not a property of the recovery map, and it is out of
+# scope by decision. The chosen `mixing` setting is therefore not claimed to be optimal.
+#
+# Do not edit in place: a changed setting changes config_id.
+name: recovery-n3
+# Do not edit in place: a changed setting changes config_id.
+stage: production
+frozen: true
+notes: >
+  Every reported number is computed on the test split. n = 3 is the design's optional
+  replication of the n = 2 core, not a second main result.
+
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+n: 3
+k: 2
+separation: 1.0
+# name -> identity mixing. artanh is the analytic control, mixing the nonlinear benchmark.
+cases:
+  artanh: true
+  mixing: false
+routes: [reference, regression]
+
+# Per condition; n = 2 gives q = 4 and so 5 conditions.
+sizes:
+  fitting: 10000
+  calibration: 4000
+  validation: 4000
+  pert_calibration: 4000
+  test: 10000
+
+potential:
+  basis_seed: 17
+  chunk_size: 512
+
+# Chosen per case on seeds 100-109; see the header.
+potential_by_case:
+  artanh:
+    n_features: 2048
+    ridge: 1.0e-8
+  mixing:
+    n_features: 4096
+    ridge: 1.0e-9
+
+# Reported alongside the primary setting, never used to select after the freeze.
+# The same full 3 x 3 grid the selection used, reported on the production seeds. Complete by
+# construction: every width is run at every ridge.
+potential_sensitivity:
+  n_features: [1024, 2048, 4096]
+  ridges: [1.0e-9, 1.0e-8, 1.0e-7]
+
+perturbation:
+  seed: 5
+  n_features: 32
+  hidden: 32
+  kinds: [gradient, field]
+  # 0 is the baseline. The two smallest are baseline-dominated at this basis.
+  amplitudes:
+    - 0.0
+    - 1.0e-4
+    - 3.1622776601683794e-4
+    - 1.0e-3
+    - 3.1622776601683794e-3
+    - 1.0e-2
+    - 3.1622776601683794e-2
+    - 1.0e-1
+    - 3.1622776601683794e-1
+    - 1.0
+
+# alignment-conditioning. Directions come from the true L: an oracle control, labelled as such in every record.
+directional:
+  seed: 11
+  amplitudes: [1.0e-1, 3.1622776601683794e-1, 1.0]
+
+output: results

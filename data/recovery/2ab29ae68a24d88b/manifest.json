@@ -1,0 +1,190 @@
+{
+ "config": {
+  "name": "recovery-n2",
+  "stage": "production",
+  "frozen": true,
+  "notes": "Every reported number is computed on the test split.\n",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "n": 2,
+  "k": 2,
+  "separation": 1.0,
+  "cases": {
+   "artanh": true,
+   "mixing": false
+  },
+  "routes": [
+   "reference",
+   "regression"
+  ],
+  "sizes": {
+   "fitting": 10000,
+   "calibration": 4000,
+   "validation": 4000,
+   "pert_calibration": 4000,
+   "test": 10000
+  },
+  "potential": {
+   "basis_seed": 17,
+   "chunk_size": 512
+  },
+  "potential_by_case": {
+   "artanh": {
+    "n_features": 2048,
+    "ridge": 1e-08
+   },
+   "mixing": {
+    "n_features": 4096,
+    "ridge": 1e-09
+   }
+  },
+  "potential_sensitivity": {
+   "n_features": [
+    1024,
+    2048,
+    4096
+   ],
+   "ridges": [
+    1e-09,
+    1e-08,
+    1e-07
+   ]
+  },
+  "perturbation": {
+   "seed": 5,
+   "n_features": 32,
+   "hidden": 32,
+   "kinds": [
+    "gradient",
+    "field"
+   ],
+   "amplitudes": [
+    0.0,
+    0.0001,
+    0.00031622776601683794,
+    0.001,
+    0.0031622776601683794,
+    0.01,
+    0.03162277660168379,
+    0.1,
+    0.31622776601683794,
+    1.0
+   ]
+  },
+  "directional": {
+   "seed": 11,
+   "amplitudes": [
+    0.1,
+    0.31622776601683794,
+    1.0
+   ]
+  },
+  "output": "results"
+ },
+ "config_id": "2ab29ae68a24d88b",
+ "environment": {
+  "python": "3.12.2",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "dtype": "float64"
+ },
+ "source_hashes": {
+  "generator.py": "2fcbaf88ec842e5eff493af8970b56ac952fcf251ce035e6b96b4f3124c5cb8d",
+  "readout.py": "a92230a45cf25f15d8fc896827eee51f667271079b5e3b215dc00e29f111e349",
+  "perturbation.py": "48e29f0b83c5b0f2bc04e532d3cd61c8e70f6f5be34be8690a5dbe30e844c145",
+  "recovery.py": "1fc97a5da0a168cfadd9cd27d254bb198fe7f534104385728eab41c369f9e14d",
+  "metrics.py": "2eb23643266d52d2fdc25883da990467d21e5f26f1727103d494af187bc8ab6d",
+  "directions.py": "2e698fc93cf789d753441a762c3a51fbf3a963eded0c9364b57f340c2a22e8c3",
+  "bounds.py": "b1c3846473843e948156da30d72dd73d87a1c867777398c180e301100a2398b3",
+  "types.py": "4ea2d7665ef0307f77b24d8fc007d6c6994c93944daaba78bbf6885e98836f47",
+  "runs.py": "a6f2ca6aee2059397c6da3ab0b569d63dc27fabed95aaf31ed89394d62f9864c"
+ },
+ "source_ast_hashes": {
+  "generator.py": "6a324f47538c4aff5b9940bebb7ea31187224d196342cc180ad52c4c4b622bbc",
+  "readout.py": "6e23503558280890c13baaab7c6885f96a244f2e3bf94c484ef6898f813a8fde",
+  "perturbation.py": "0f096105bd654f2afcd43a1e483d42914a3b74780f77be0c7d2ae2e2d207f0e5",
+  "recovery.py": "c183909bbcfa0483ef2d3aff5edd9517ef15499bffba4ac6cfe23efa745974ce",
+  "metrics.py": "6adfbdf0dd5dfcf9fce148be166d0ddf6d46506a3b60b03c0e02532b76064461",
+  "directions.py": "0ce495af12a7f6050a480561bd275ff73a3388db8aa76c5b2e1e288aba70e9bc",
+  "bounds.py": "5b2f7197a35c3fbb670e91568381319eafb8870aeda0cb61a8237ed16bd7e5ab",
+  "types.py": "1463086d630065723353c46ccd6d53eb94d040fd40776b5b35cc5c322b2d534c",
+  "runs.py": "f5d246dcf5aee11bc737c299988f84eda9bb8a4bbce4a0882f5f06e0489322f2"
+ },
+ "seeds_requested": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "runs": {
+  "0": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "1": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "2": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "3": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "4": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "5": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "6": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "7": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "8": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  },
+  "9": {
+   "status": "completed",
+   "failure": null,
+   "cases_completed": 2
+  }
+ },
+ "wall_clock_seconds": 25733.747771541995
+}
